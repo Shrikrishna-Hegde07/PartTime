@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Work Time — Student Gig Marketplace Design System
+   Dark-first, high-trust, Action Blue accents, Emergency Red flash alerts.
+   All colors HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark theme is the default brand experience */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 40% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 45% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Action Blue — primary CTA */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 213 94% 68%;
+
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Emergency Red — Flash Job alerts */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --flash: 0 90% 58%;
+    --flash-glow: 5 95% 65%;
+    --flash-foreground: 0 0% 100%;
+
+    /* Trust Green — verified / success */
+    --success: 152 76% 44%;
+    --success-foreground: 210 40% 98%;
+
+    /* Warning Amber — limit warnings */
+    --warning: 38 95% 56%;
+    --warning-foreground: 222 47% 6%;
+
+    --border: 217 33% 16%;
+    --input: 217 33% 14%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.875rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(224 76% 48%));
+    --gradient-flash: linear-gradient(135deg, hsl(0 90% 58%), hsl(14 92% 55%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(217 91% 60% / 0.18), transparent 60%),
+                     radial-gradient(ellipse at bottom right, hsl(224 76% 48% / 0.14), transparent 50%);
+    --gradient-card: linear-gradient(180deg, hsl(222 40% 11%), hsl(222 40% 8%));
+
+    /* Shadows */
+    --shadow-elegant: 0 20px 60px -20px hsl(217 91% 60% / 0.35);
+    --shadow-flash: 0 0 0 0 hsl(0 90% 58% / 0.6);
+    --shadow-card: 0 8px 30px -10px hsl(222 80% 2% / 0.6);
+
+    /* Motion */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar (kept for shadcn parity) */
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  /* Mirror for explicit dark class — same palette */
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 45% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 16%;
+    --input: 217 33% 14%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .bg-gradient-flash {
+    background: var(--gradient-flash);
+  }
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass {
+    background: hsl(222 40% 9% / 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(217 33% 18% / 0.6);
+  }
+}
